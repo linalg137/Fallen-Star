@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://di33urlyljx57"]
+
+[ext_resource type="Script" uid="uid://prn1y4n0nh62" path="res://player.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://d2lt00t37oc4g" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="Script" uid="uid://bqa47svq513sd" path="res://star.gd" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dqixdgi22nd58" path="res://pixil-frame-0 (1).png" id="2_lquwl"]
+[ext_resource type="Script" uid="uid://chvm68d8q15lc" path="res://zombie.gd" id="4_1bvp3"]
+
+[sub_resource type="Gradient" id="Gradient_0xm2m"]
+offsets = PackedFloat32Array(0, 0.9939759, 1)
+colors = PackedColorArray(0.8745098, 0.9607843, 0.9529412, 1, 0.972549, 0.99215686, 0.9882353, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0xm2m"]
+gradient = SubResource("Gradient_0xm2m")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3onca"]
+radius = 14.035668
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
+radius = 9.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3onca"]
+radius = 75.0
+height = 166.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jq0e7"]
+radius = 20.09975
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4lyh"]
+size = Vector2(1025, 655)
+
+[node name="Node2D" type="Node2D" unique_id=459470424]
+script = ExtResource("1_lquwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759243086]
+position = Vector2(515, 315)
+texture = ExtResource("2_lquwl")
+metadata/_edit_lock_ = true
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=531478639]
+position = Vector2(287, 95)
+script = ExtResource("1_ig7tw")
+
+[node name="Glow" type="Polygon2D" parent="Player" unique_id=478317884]
+position = Vector2(-380.24704, -223.6)
+scale = Vector2(0.69411767, 0.7)
+color = Color(0.90588236, 0.91764706, 1, 0.41960785)
+polygon = PackedVector2Array(557, 278, 579, 283, 599, 299, 604, 316, 598, 335, 582, 353, 561, 368, 536, 351, 521, 330, 519, 300, 532, 285)
+
+[node name="Polygon2D" type="Polygon2D" parent="Player" unique_id=1291067759]
+position = Vector2(-68, -17)
+scale = Vector2(0.4907855, 0.9878885)
+polygon = PackedVector2Array(138.55322, -4.847458, 119.65961, 1.0847473, 110.21283, 12.949173, 121.23407, 26.508469, 130.68091, 34.983047, 148.00006, 43.457626, 162.17029, 36.677963, 173.19153, 27.355942, 179.48944, 13.796616, 174.76599, 3.627121, 159.0213, -4)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=797364102]
+position = Vector2(3.0000153, -4.0000153)
+scale = Vector2(0.7603385, 0.5127475)
+energy = 1.5
+texture = SubResource("GradientTexture2D_0xm2m")
+texture_scale = 4.67
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1482308496]
+position = Vector2(5, 3)
+shape = SubResource("CircleShape2D_3onca")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1010892683]
+position = Vector2(13, 0)
+zoom = Vector2(3.5, 3.5)
+
+[node name="Star" type="Area2D" parent="." unique_id=1245339033]
+position = Vector2(-28, -46)
+script = ExtResource("2_0xm2m")
+
+[node name="star1collision" type="CollisionShape2D" parent="Star" unique_id=1613689332]
+position = Vector2(171, 283)
+shape = SubResource("CapsuleShape2D_h2yge")
+
+[node name="star1shape" type="Polygon2D" parent="Star" unique_id=31941128]
+position = Vector2(55, 270.99997)
+scale = Vector2(0.29176256, 0.47368437)
+color = Color(0.91670364, 0.8468574, 0.6596529, 1)
+polygon = PackedVector2Array(402.5, 0, 388.5, 23, 356.5, 14, 379.5, 48, 361.5, 65, 408.5, 54, 426.5, 76, 437.5, 41, 468.5, 26, 419.5, 20)
+uv = PackedVector2Array(402.5, 0, 388.5, 23, 356.5, 14, 379.5, 48, 361.5, 65, 408.5, 54, 426.5, 76, 437.5, 41, 468.5, 26, 438.5, 23)
+
+[node name="Star2" type="Area2D" parent="." unique_id=1958087474]
+position = Vector2(147, -9)
+script = ExtResource("2_0xm2m")
+
+[node name="star2collision" type="CollisionShape2D" parent="Star2" unique_id=1995049775]
+position = Vector2(700, 573)
+shape = SubResource("CapsuleShape2D_h2yge")
+
+[node name="star2shape" type="Polygon2D" parent="Star2" unique_id=1687355365]
+position = Vector2(342, 332.00003)
+scale = Vector2(0.41831815, 0.4675328)
+color = Color(0.91670364, 0.8468574, 0.6596529, 1)
+polygon = PackedVector2Array(842.23694, 467.02783, 839.84644, 501.25, 820.72217, 513.5574, 838, 531, 830.7036, 551.4262, 859, 540, 883, 559, 885.26636, 522.6389, 923.5148, 505.52783, 870.9232, 494.83337)
+
+[node name="Star3" type="Area2D" parent="." unique_id=809900151]
+position = Vector2(92, -52)
+script = ExtResource("2_0xm2m")
+
+[node name="star3collision" type="CollisionShape2D" parent="Star3" unique_id=1542806984]
+position = Vector2(365, 248)
+shape = SubResource("CapsuleShape2D_h2yge")
+
+[node name="star3shape" type="Polygon2D" parent="Star3" unique_id=1301497079]
+position = Vector2(7, 10)
+scale = Vector2(0.41831815, 0.4675328)
+color = Color(0.91670364, 0.8468574, 0.6596529, 1)
+polygon = PackedVector2Array(861, 482, 850, 508, 820.72217, 513.5574, 838, 531, 830.7036, 551.4262, 859, 540, 894.8285, 554.7222, 878, 533, 902.00006, 507.66666, 875.7043, 507.66666)
+
+[node name="Star4" type="Area2D" parent="." unique_id=1029754968]
+position = Vector2(-84, 18)
+script = ExtResource("2_0xm2m")
+
+[node name="star4collision" type="CollisionShape2D" parent="Star4" unique_id=951168506]
+position = Vector2(254, 489)
+shape = SubResource("CapsuleShape2D_h2yge")
+
+[node name="star4shape" type="Polygon2D" parent="Star4" unique_id=186145400]
+position = Vector2(-103.000015, 245)
+scale = Vector2(0.41831815, 0.4675328)
+color = Color(0.91670364, 0.8468574, 0.6596529, 1)
+polygon = PackedVector2Array(861, 482, 850, 508, 820.72217, 513.5574, 838, 531, 830.7036, 551.4262, 859, 540, 883, 559, 878, 533, 902, 520, 871, 511)
+
+[node name="Star5" type="Area2D" parent="." unique_id=1478378865]
+position = Vector2(-58, -20)
+script = ExtResource("2_0xm2m")
+
+[node name="star5collision" type="CollisionShape2D" parent="Star5" unique_id=1732680825]
+position = Vector2(886, 113)
+shape = SubResource("CapsuleShape2D_h2yge")
+
+[node name="star5shape" type="Polygon2D" parent="Star5" unique_id=1865277255]
+position = Vector2(525, -128)
+scale = Vector2(0.41831815, 0.4675328)
+color = Color(0.91670364, 0.8468574, 0.6596529, 1)
+polygon = PackedVector2Array(861, 482, 842.2368, 505.52777, 820.72217, 513.5574, 838, 531, 818.33167, 558.99994, 859, 540, 890.04736, 563.2777, 878, 533, 902, 520, 871, 511)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=990884565]
+position = Vector2(266, 68)
+color = Color(0.37295783, 0.16839448, 0.5297473, 1)
+
+[node name="Pond" type="StaticBody2D" parent="." unique_id=2065638381]
+position = Vector2(-47, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pond" unique_id=747359303]
+position = Vector2(446, 271)
+shape = SubResource("CapsuleShape2D_3onca")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pond" unique_id=867019836]
+position = Vector2(596, 271)
+shape = SubResource("CapsuleShape2D_3onca")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pond" unique_id=2093871323]
+position = Vector2(515, 274)
+shape = SubResource("CapsuleShape2D_3onca")
+
+[node name="Zombie" type="CharacterBody2D" parent="." unique_id=1350788282]
+position = Vector2(62, 95)
+script = ExtResource("4_1bvp3")
+
+[node name="Polygon2D" type="Polygon2D" parent="Zombie" unique_id=1219510909]
+position = Vector2(-541, -300)
+scale = Vector2(0.78125, 0.84615386)
+color = Color(0.27889675, 0.41170862, 0.31093514, 1)
+polygon = PackedVector2Array(700, 341, 724, 346, 725, 370, 701, 380, 661, 364, 669.44, 345.09094)
+
+[node name="shape" type="CollisionShape2D" parent="Zombie" unique_id=1485142269]
+position = Vector2(4, 3)
+shape = SubResource("CircleShape2D_jq0e7")
+
+[node name="Zombie2" type="CharacterBody2D" parent="." unique_id=1286131772]
+position = Vector2(868, 334)
+script = ExtResource("4_1bvp3")
+
+[node name="Polygon2D" type="Polygon2D" parent="Zombie2" unique_id=222104030]
+position = Vector2(-544, -308.99997)
+scale = Vector2(0.78125, 0.84615386)
+color = Color(0.27889675, 0.41170862, 0.31093514, 1)
+polygon = PackedVector2Array(700, 341, 724, 346, 725, 370, 701, 380, 661, 364, 669.44, 345.09094)
+
+[node name="shape" type="CollisionShape2D" parent="Zombie2" unique_id=874880254]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_jq0e7")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=972085662]
+
+[node name="starcounter" type="Label" parent="UI" unique_id=697483264]
+anchors_preset = -1
+anchor_left = 0.837
+anchor_top = 0.05
+anchor_right = 0.938
+anchor_bottom = 0.095000006
+offset_left = 14.911987
+offset_right = -15.512024
+offset_bottom = -5.800003
+text = "Stars: 0/5"
+
+[node name="winmessage" type="Label" parent="UI" unique_id=840406587]
+visible = false
+offset_left = 363.0
+offset_top = 183.0
+offset_right = 808.0
+offset_bottom = 407.0
+text = "YOU FOUND ALL THE STARS! ✨"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=7613673]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=387006901]
+position = Vector2(522, -313)
+shape = SubResource("RectangleShape2D_v4lyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/CollisionShape2D" unique_id=2052137917]
+position = Vector2(5, 1274)
+shape = SubResource("RectangleShape2D_v4lyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/CollisionShape2D/CollisionShape2D" unique_id=1673680199]
+position = Vector2(-1030, -636)
+shape = SubResource("RectangleShape2D_v4lyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/CollisionShape2D/CollisionShape2D/CollisionShape2D" unique_id=522131154]
+position = Vector2(2032, -5)
+shape = SubResource("RectangleShape2D_v4lyh")
+
+[connection signal="body_entered" from="Star" to="Star" method="_on_star_body_entered"]
+[connection signal="body_entered" from="Star2" to="Star2" method="_on_star_body_entered"]
+[connection signal="body_entered" from="Star3" to="Star3" method="_on_star_body_entered"]
+[connection signal="body_entered" from="Star4" to="Star4" method="_on_star_body_entered"]
+[connection signal="body_entered" from="Star5" to="Star5" method="_on_star_body_entered"]
